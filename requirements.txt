@@ -1,0 +1,11 @@
+flask
+langchain
+langchain-text-splitters
+langchain-community
+langchain-groq
+faiss-cpu
+pypdf
+sentence-transformers
+cryptography
+langchain-huggingface
+gunicorn
