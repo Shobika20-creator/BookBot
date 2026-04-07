@@ -1,13 +1,12 @@
 from flask import Flask, request, jsonify, render_template
 import os
 
-# ✅ UPDATED IMPORTS (VERY IMPORTANT)
+# ✅ UPDATED IMPORTS (Lightweight for Render)
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_classic.chains.question_answering import load_qa_chain
-
 from langchain_groq import ChatGroq
 
 app = Flask(__name__)
@@ -15,8 +14,8 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Load embedding model
-embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+# 🚀 Optimized embedding model (Uses only ~100MB RAM)
+embedding_model = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 
 vector_db = None
 
