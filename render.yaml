@@ -1,6 +1,7 @@
 services:
   - type: web
     name: bookbot-ai
+    plan: free
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
