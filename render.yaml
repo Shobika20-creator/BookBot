@@ -6,6 +6,6 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: GROQ_API_KEY
-        placeholder: "Paste your Groq API Key here"
+        sync: false
       - key: PYTHON_VERSION
         value: 3.10.0
